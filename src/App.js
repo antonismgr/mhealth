@@ -1,17 +1,23 @@
 import "./App.css";
 import Login from "./Pages/Login";
-import AddPatient from "./Pages/AddPatient";
 import ViewPatient from "./Pages/ViewPatient";
-import PatientDetails from "./Pages/PatientDetails";
 import { React, useState } from "react";
+import Account from "./Pages/Account";
+import Loading from "./components/Loading";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userId, setUserId] = useState("");
   const [patients, setPatients] = useState([]);
+  const [userName, setUserName] = useState("");
+  const [showLoading, setShowLoading] = useState(false);
 
   const login = () => {
     setIsLoggedIn(true);
+  };
+
+  const logout = () => {
+    setIsLoggedIn(false);
   };
 
   // POST LOGIN
@@ -35,6 +41,7 @@ function App() {
         if (data !== null) {
           login();
           setUserId(data.userid);
+          setUserName(data.username);
           console.log(data);
           fetchPatients(userId);
         }
@@ -44,6 +51,7 @@ function App() {
 
   // Function GET patients
   const fetchPatients = (userid) => {
+    setShowLoading(true);
     fetch(
       `http://62.74.232.210:4566/healthmonitor/patients?user_id=${userid}`,
       {
@@ -63,6 +71,7 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setPatients(data.patients);
+        setShowLoading(false);
       })
       .catch((error) => console.log("error", error));
   };
@@ -70,7 +79,9 @@ function App() {
   return (
     <div className="container">
       {isLoggedIn || <Login loginUser={loginUser} />}
-      {isLoggedIn && <ViewPatient patients={patients} />}
+      {isLoggedIn && <Account logout={logout} username={userName} />}
+      {isLoggedIn && !showLoading && <ViewPatient patients={patients} />}
+      {showLoading && <Loading />}
       {/* <AddPatient />
       <PatientDetails /> */}
     </div>
