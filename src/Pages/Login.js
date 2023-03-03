@@ -15,15 +15,18 @@ import BgImage from "../Images/medical.jpg";
 
 const theme = createTheme();
 
-export default function Login({ login }) {
+export default function Login({ loginUser }) {
+  // Function με POST για το login
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    login();
+
     console.log({
       email: data.get("username"),
       password: data.get("password"),
     });
+    loginUser(data.get("username"), data.get("password"));
   };
 
   return (

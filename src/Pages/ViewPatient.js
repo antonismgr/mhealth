@@ -1,32 +1,64 @@
-import { React, useState } from "react";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import { DataGrid } from "@mui/x-data-grid";
 
-const ViewPatient = () => {
-  const [patients, setPatients] = useState([]);
-  fetch("http://62.74.232.210:4566/healthmonitor/patients?user_id=18", {
-    method: "GET",
-    headers: {
-      API_KEY:
-        "7mJ5Ckgu7duD5lTdLGFRkfcHreY8f6CFQqGlcRVjwHjFWjEdIzBNd3HFlozQAcyHFfxngRoRVquxdaYwL6CLLBFJeu6btl5fbRysWPMfF3GU9wj7ZZUexijWkjPs5uc1",
-      username: "customer_admin",
-      password: "healthmonitoring2021",
-    },
-    redirect: "follow",
-    mode: "cors",
-  })
-    .then((response) => response.json())
-    .then((data) => setPatients(data.patients))
-    .catch((error) => console.log("error", error));
+const columns = [
+  { field: "patient_id", headerName: "ID", width: 90 },
+  {
+    field: "firstname",
+    headerName: "First name",
+    width: 150,
+    editable: false,
+  },
+  {
+    field: "lastname",
+    headerName: "Last name",
+    width: 150,
+    editable: false,
+  },
+  {
+    field: "age",
+    headerName: "Age",
+    type: "number",
+    width: 110,
+    editable: false,
+  },
+  {
+    field: "address_city",
+    headerName: "address_city",
+    width: 150,
+    editable: false,
+  },
+];
+
+export default function ViewPatient({ patients }) {
+  console.log(patients);
+  console.log(columns);
   return (
-    <div className="viewpatient">
-      {patients.map((x) => (
-        <div>
-          <h6>
-            {x.firstname} {x.lastname}
-          </h6>
-        </div>
-      ))}
-    </div>
+    <Box sx={{ height: 670, width: "100%" }}>
+      <DataGrid
+        getRowId={(row) => row.patient_id}
+        rows={patients}
+        columns={columns}
+        pageSize={5}
+        rowsPerPageOptions={[5]}
+        experimentalFeatures={{ newEditingApi: true }}
+      />
+    </Box>
   );
-};
+}
 
-export default ViewPatient;
+// const ViewPatient = ({ patients }) => {
+//   console.log(patients);
+//   return (
+//     <div className="viewpatient">
+//       {patients.map((x) => (
+//         <div key={x.patient_id}>
+//           <h6>
+//             {x.firstname} {x.lastname}
+//           </h6>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
