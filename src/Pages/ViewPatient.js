@@ -25,8 +25,24 @@ const columns = [
   },
   {
     field: "address_city",
-    headerName: "address_city",
+    headerName: "City",
     width: 150,
+    editable: false,
+  },
+  {
+    field: "address",
+    headerName: "Address",
+    description: "This column has a value getter and is not sortable.",
+    sortable: false,
+    width: 160,
+    valueGetter: (params) =>
+      `${params.row.address_street || ""}  ${params.row.address_number || ""}`,
+  },
+  {
+    field: "dia_blood_pressure",
+    headerName: "Blood Pressure",
+    type: "number",
+    width: 110,
     editable: false,
   },
 ];
