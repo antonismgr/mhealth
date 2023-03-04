@@ -4,7 +4,7 @@ import styles from "../Pages/Account.module.css";
 const Account = ({ logout, username }) => {
   return (
     <div className={styles.account}>
-      <h3>Hello {username}</h3>
+      <h3>Welcome, {username}</h3>
       <Button size="small" variant="text" onClick={logout}>
         Logout
       </Button>

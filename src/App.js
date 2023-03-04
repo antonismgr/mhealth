@@ -4,6 +4,7 @@ import ViewPatient from "./Pages/ViewPatient";
 import { React, useState } from "react";
 import Account from "./Pages/Account";
 import Loading from "./components/Loading";
+import AddPatient from "./Pages/AddPatient";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -11,13 +12,22 @@ function App() {
   const [patients, setPatients] = useState([]);
   const [userName, setUserName] = useState("");
   const [showLoading, setShowLoading] = useState(false);
+  const [addPatientPressed, setAddPatientPressed] = useState(false);
+  const [showPatients, setShowPatients] = useState(false);
 
   const login = () => {
     setIsLoggedIn(true);
+    setShowPatients(true);
   };
 
   const logout = () => {
     setIsLoggedIn(false);
+    setShowPatients(false);
+  };
+
+  const addpatient = () => {
+    setAddPatientPressed(true);
+    setShowPatients(false);
   };
 
   // POST LOGIN
@@ -71,6 +81,7 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setPatients(data.patients);
+
         setShowLoading(false);
       })
       .catch((error) => console.log("error", error));
@@ -80,10 +91,11 @@ function App() {
     <div className="container">
       {isLoggedIn || <Login loginUser={loginUser} />}
       {isLoggedIn && <Account logout={logout} username={userName} />}
-      {isLoggedIn && !showLoading && <ViewPatient patients={patients} />}
+      {isLoggedIn && !showLoading && showPatients && (
+        <ViewPatient patients={patients} addpatient={addpatient} />
+      )}
+      {isLoggedIn && addPatientPressed && !showLoading && <AddPatient />}
       {showLoading && <Loading />}
-      {/* <AddPatient />
-      <PatientDetails /> */}
     </div>
   );
 }
