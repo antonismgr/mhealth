@@ -1,23 +1,24 @@
 .patient {
   /* box-shadow: 0px 0px 2px 1px rgb(0, 119, 216); */
-  padding: 5px;
+  padding: 15px 8px;
   display: flex;
   width: 200px;
-  margin: 20px;
+  margin: 15px 0;
   flex-direction: column;
   align-items: center;
   border-radius: 15px;
-  transition: 0.3s;
-  background-color: white;
-  border: 0.5px solid rgb(26, 80, 124);
+  transition: 0.6s;
+  background-color: #eee;
+  border: 0.5px solid #eee;
+
+  color: #6a6a6a;
 }
 
 .patient:hover {
-  background-color: rgb(26, 80, 124);
-  /* box-shadow: 0px 0px 2px 1px white; */
-  color: white;
+  background-color: rgb(0, 138, 180);
+  color: #eee;
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .container {
@@ -25,10 +26,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 60%;
-  border: 1px solid white;
+  width: 56%;
+  border: 1px solid #eee;
   border-radius: 10px;
   background-color: white;
+  height: 665px;
+  overflow-y: auto;
+  padding: 10px 15px 5px 15px;
 }
 
 .sex {
@@ -40,13 +44,16 @@
   display: flex;
   justify-content: center;
   background-image: url(../Images/medical.jpg);
-  background-repeat: no-repeat;
   background-size: 100%;
+  background-repeat: no-repeat;
+
+  /* background-color: #6a6a6a; */
+  height: 769px;
 }
 
 .addPatient {
-  background-color: rgb(188, 239, 255);
+  background-color: #eee;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   padding: 10px;
 }

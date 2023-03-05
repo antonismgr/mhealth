@@ -5,8 +5,8 @@ const Account = ({ logout, username }) => {
   return (
     <div className={styles.account}>
       <h3>Welcome, {username}</h3>
-      <Button size="small" variant="text" onClick={logout}>
-        Logout
+      <Button size="small" variant="contained" onClick={logout}>
+        Log Out
       </Button>
     </div>
   );

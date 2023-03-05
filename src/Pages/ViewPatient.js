@@ -1,6 +1,7 @@
 import styles from "../Pages/ViewPatient.module.css";
 import "animate.css";
 import { Button } from "@mui/material";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
 
 const ViewPatient = ({ patients, addpatient }) => {
   console.log(patients);
@@ -8,7 +9,14 @@ const ViewPatient = ({ patients, addpatient }) => {
   return (
     <div className="animate__animated animate__fadeIn">
       <div className={styles.addPatient}>
-        <Button variant="contained" onClick={addpatient}>
+        <Button
+          variant="contained"
+          size="large"
+          onClick={addpatient}
+          title="Add Patient"
+          startIcon={<PersonAddIcon />}
+          color="primary"
+        >
           Add Patient
         </Button>
       </div>

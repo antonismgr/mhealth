@@ -101,7 +101,7 @@ export default function Login({ loginUser }) {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Log In
               </Button>
             </Box>
           </Box>
