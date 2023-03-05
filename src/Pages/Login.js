@@ -3,8 +3,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -22,10 +20,6 @@ export default function Login({ loginUser }) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    console.log({
-      email: data.get("username"),
-      password: data.get("password"),
-    });
     loginUser(data.get("username"), data.get("password"));
   };
 
@@ -52,7 +46,7 @@ export default function Login({ loginUser }) {
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
-              my: 8,
+              my: 20,
               mx: 4,
               display: "flex",
               flexDirection: "column",
@@ -91,10 +85,7 @@ export default function Login({ loginUser }) {
                 id="password"
                 autoComplete="current-password"
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
+
               <Button
                 type="submit"
                 fullWidth

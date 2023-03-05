@@ -43,17 +43,44 @@
 .grid {
   display: flex;
   justify-content: center;
-  background-image: url(../Images/medical.jpg);
-  background-size: 100%;
-  background-repeat: no-repeat;
-
-  /* background-color: #6a6a6a; */
-  height: 769px;
 }
 
 .addPatient {
-  background-color: #eee;
+  background-color: #313131;
   display: flex;
   justify-content: end;
   padding: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .grid {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+  }
+
+  .container {
+    margin-top: 3%;
+    margin-bottom: 4%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 70%;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-color: white;
+    height: 455px;
+    overflow-y: auto;
+    padding: 10px 15px 5px 15px;
+  }
+
+  .addPatient {
+    background-color: #313131;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
 }

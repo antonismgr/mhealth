@@ -3,9 +3,7 @@ import "animate.css";
 import { Button } from "@mui/material";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 
-const ViewPatient = ({ patients, addpatient }) => {
-  console.log(patients);
-
+const ViewPatient = ({ patients, addpatient, showDetails }) => {
   return (
     <div className="animate__animated animate__fadeIn">
       <div className={styles.addPatient}>
@@ -24,7 +22,11 @@ const ViewPatient = ({ patients, addpatient }) => {
         <div className={styles.container}>
           {patients.map((x) => {
             return (
-              <div className={styles.patient} key={x.patient_id}>
+              <div
+                className={styles.patient}
+                key={x.patient_id}
+                onClick={() => showDetails(x.patient_id)}
+              >
                 <div>
                   <h3>
                     {x.firstname} {x.lastname}{" "}

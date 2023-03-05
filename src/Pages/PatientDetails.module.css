@@ -1,0 +1,161 @@
+.navigator {
+  background-color: #313131;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+
+  /* background-color: #6a6a6a; */
+}
+
+.container {
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: flex-start;
+  width: 90%;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background-color: white;
+  height: 680px;
+  overflow-y: auto;
+  padding: 10px 15px 5px 15px;
+}
+
+.navbuttons {
+  margin-left: 10px;
+}
+
+.details {
+  border-radius: 10px;
+
+  color: rgb(26, 26, 26);
+  padding: 20px 50px;
+  margin: 10px;
+  height: fit-content;
+  background-color: white;
+}
+
+.allInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.section {
+  background-color: #d6d6d6;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.doctor {
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.docdetails {
+  color: rgb(22, 123, 255);
+  border-radius: 10px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.prof {
+  font-size: small;
+}
+
+.mail {
+  color: rgb(0, 104, 223);
+}
+
+@media only screen and (max-width: 600px) {
+  .navigator {
+    background-color: #313131;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: wrap;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+
+  .grid {
+    display: flex;
+    justify-content: center;
+
+    /* background-color: #6a6a6a; */
+    height: 500px;
+  }
+
+  .container {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    justify-content: flex-start;
+    width: 80%;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-color: white;
+    height: 460px;
+    overflow-y: auto;
+    padding: 10px 15px 5px 15px;
+  }
+  .allInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .section {
+    background-color: #d6d6d6;
+    border-radius: 10px;
+    padding: 2px 15px;
+    margin: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .details {
+    border-radius: 10px;
+
+    color: rgb(26, 26, 26);
+    padding: 0px 20px;
+    margin: 10px;
+    height: fit-content;
+    background-color: white;
+  }
+
+  .form {
+    height: 490px;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: large;
+  }
+}
